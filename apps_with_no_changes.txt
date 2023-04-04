@@ -1,1 +1,1 @@
-dashboard dashboard-v2 pulse tracking
+dashboard dashboard-v2 tracking
