@@ -2,10 +2,8 @@ pipeline {
     agent any
 
     pre {
-        stage ("Run apps script") {
-            steps {
-                sh './check-single-app-change.sh'
-            }
+        steps {
+            sh './check-single-app-change.sh'
         }
     }
 
