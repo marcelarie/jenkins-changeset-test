@@ -18,9 +18,10 @@ done
 for app in $apps; do
 	if git diff origin/master --name-only | grep --quiet "^apps/$app/.*"; then
 		apps_with_changes+=("$app")
-		echo "${apps_with_changes[*]}" >apps_with_changes.txt
 	else
 		apps_with_no_changes+=("$app")
-		echo "${apps_with_no_changes[*]}" >apps_with_no_changes.txt
 	fi
 done
+
+echo "${apps_with_changes[*]}" >apps_with_changes.txt
+echo "${apps_with_no_changes[*]}" >apps_with_no_changes.txt
