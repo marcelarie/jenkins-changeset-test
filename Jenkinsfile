@@ -6,6 +6,11 @@ pipeline {
             script: './check-single-app-change.sh && cat apps_with_no_changes.txt',
             returnStdout: true
         ).trim()
+
+        APPS_WITH_CHANGES = sh (
+            script: './check-single-app-change.sh && cat apps_with_changes.txt',
+            returnStdout: true
+        ).trim()
     }
 
     stages {
@@ -19,7 +24,6 @@ pipeline {
 
         stage ("Deploy branches") {
             agent any
-
 
             when {
                 allOf {
