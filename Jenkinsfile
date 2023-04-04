@@ -1,4 +1,9 @@
 pipeline {
+    agent {
+        label 'jenkins-test'
+    }
+
+
     stages {
         stage ("Deploy branches") {
             agent any
