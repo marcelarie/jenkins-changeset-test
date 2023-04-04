@@ -10,10 +10,10 @@ pipeline {
                     allOf {
                         not { branch 'master' }
                         changeset "folder_1/**"
-                            expression {  // there are changes in some-directory/...
+                            expression {
                                 sh(returnStatus: true, script: 'git diff  origin/master --name-only | grep --quiet "^folder_1/.*"') == 0
                             }
-                        expression {   // ...and nowhere else.
+                        expression {
                             sh(returnStatus: true, script: 'git diff origin/master --name-only | grep --quiet --invert-match "^folder_1/.*"') == 1
                         }
                     }
