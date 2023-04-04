@@ -7,6 +7,6 @@ for app in $apps; do
 	if git diff origin/master --name-only | grep --quiet "^apps/$app/.*"; then
 		echo "$app has changes"
 	else
-		echo "$app has no changes"
+		echo "$app has NO changes"
 	fi
 done
