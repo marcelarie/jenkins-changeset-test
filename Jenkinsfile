@@ -13,7 +13,8 @@ pipeline {
             agent any
 
             steps {
-                echo "APPS WITH NO CHANGES: $APPS_WITH_NO_CHANGES"
+                sh 'echo "APPS WITH NO CHANGES: $APPS_WITH_NO_CHANGES"'
+                sh 'cat apps_with_no_changes.txt'
             }
         }
 
