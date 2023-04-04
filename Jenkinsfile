@@ -19,6 +19,7 @@ pipeline {
 
             steps {
                 sh 'echo "APPS WITH NO CHANGES: $APPS_WITH_NO_CHANGES"'
+                sh 'echo "APPS WITH CHANGES: $APPS_WITH_CHANGES"'
             }
         }
 
