@@ -1,20 +1,22 @@
 pipeline {
     agent any
 
-    pre {
-        steps {
-            sh './check-single-app-change.sh'
-        }
-    }
-
     environment {
         APPS_WITH_NO_CHANGES = sh (
-            script: 'cat apps_with_no_changes.txt',
+            script: './check-single-app-change.sh && cat apps_with_no_changes.txt',
             returnStdout: true
         ).trim()
     }
 
     stages {
+        stage ("check environment variable") {
+            agent any
+
+            steps {
+                echo "$APPS_WITH_NO_CHANGES"
+            }
+        }
+
         stage ("Deploy branches") {
             agent any
 
