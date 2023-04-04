@@ -2,8 +2,24 @@ pipeline {
     agent any
 
     stages {
+        stage ("Run apps script") {
+            steps {
+                sh './check-single-app-change.sh'
+            }
+        }
+    }
+
+    environment {
+        APPS_WITH_NO_CHANGES = sh (
+            script: 'cat apps_with_no_changes.txt',
+            returnStdout: true
+        ).trim()
+    }
+
+    stages {
         stage ("Deploy branches") {
             agent any
+
 
             when {
                 allOf {
