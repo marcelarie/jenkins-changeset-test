@@ -10,7 +10,6 @@ apps_with_no_changes=()
 for dir in $other_dirs; do
 	# If any folder that is not apps is changes we want to build all the apps
 	if git diff origin/master --name-only | grep --quiet "^$dir.*"; then
-		echo "Detected changes in $dir"
 		exit 1
 	fi
 done
